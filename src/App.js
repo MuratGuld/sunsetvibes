@@ -24,16 +24,14 @@ function App() {
         </div>
       </header>
       <main>
-        <form>
+        <div>
           <input type="search"></input>
           <button>Search</button>
-        </form>  
+        </div> 
       <div>
         <h4>Category</h4>
         <div>
-          <a href="">Men's Clothing</a>
-          <a href="">Women's Clothing</a>
-          <a href="">Jewelery</a>
+          
         </div>
       </div>
       <div className="product-container">

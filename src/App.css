@@ -11,10 +11,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   background-color: grey;
+  justify-content: center;
 }
 
 .product-card {
-  max-width: 300px;
+  width: 300px;
   padding: 30px;
   background-color: white;
   margin: 10px;
