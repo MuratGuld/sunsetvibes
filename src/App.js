@@ -44,7 +44,7 @@ function App() {
       <main>
         <form>
           <input type="search" id="filter-input"></input>
-          <button onClick={getFilterWord}>Search</button>
+          <button onFocusCapture={getFilterWord}>Search</button>
         </form>
         <div>
           <h4>Category</h4>
