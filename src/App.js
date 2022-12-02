@@ -23,11 +23,28 @@ function App() {
           <img src="images/logo.png" alt="logo" />
         </div>
       </header>
+      <main>
+        <form>
+          <input type="search"></input>
+          <button>Search</button>
+        </form>  
+      <div>
+        <h4>Category</h4>
+        <div>
+          <a href="">Men's Clothing</a>
+          <a href="">Women's Clothing</a>
+          <a href="">Jewelery</a>
+        </div>
+      </div>
       <div className="product-container">
         {productsArray.map((product) => (
           <ProductCard product={product} key={product.id} />
         ))}
       </div>
+      </main>
+      <footer>
+
+      </footer>
     </>
   );
 }
