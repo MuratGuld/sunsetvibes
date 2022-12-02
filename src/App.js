@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <header>
-        <div>
+        <div className="logo">
           <img src="images/logo.png" alt="logo" />
         </div>
       </header>

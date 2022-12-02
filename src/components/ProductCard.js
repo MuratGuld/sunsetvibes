@@ -1,3 +1,4 @@
+import "./ProductCard.css"
 
 const ProductCard = ({product}) => {
     console.log(product)
