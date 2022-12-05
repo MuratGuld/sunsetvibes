@@ -12,6 +12,7 @@ body {
   margin: 10px;
 }
 
+
 .input_search{
   text-align: center;
   margin: 20px;
@@ -34,7 +35,7 @@ body {
 }
 
 .search-btn:hover{
-  background-color: rgb(242,127,43);
+  background-color: #f27f2b;
 }
 
 .flex-container {
@@ -59,6 +60,30 @@ body {
   justify-content: center;
 }
 
-.cart-btn {
-  bottom: 0;
+/* cart button */
+
+.toggle-cart-btn {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  border: none;
+  color: black;
+  cursor: pointer;
+  margin: 20px;
+  border-radius: 50px;
+  background-color: #EFEFEF;
+}
+
+.toggle-cart-btn:hover {
+  background-color: #f27f2b;
+}
+
+.cart-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+
 }

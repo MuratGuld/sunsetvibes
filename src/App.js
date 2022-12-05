@@ -5,15 +5,22 @@ import FilterProduct from "./components/FilterProduct";
 import ProductCard from "./components/ProductCard";
 
 function App() {
+
   const [productsArray, updateProductsArray] = useState([]);
   const [category, setCategory] = useState({
-    "men's clothing": false,
+    "men's clothing" : false,
     "women's clothing": false,
   });
 
   useEffect(() => {
-    requestProduct();
+    requestProduct()
+    console.log("called");
   }, []);
+
+  useEffect(() => {
+    filterProducts(category)
+    console.log("changed");
+  }, [category]);
 
   //----- get the product ----
 
@@ -23,7 +30,7 @@ function App() {
     updateProductsArray(products);
   }
 
-  // ---- filter the product on input search ----
+  // ---- filter product on input search ----
   async function filterByWord(key = "title", filterText) {
     const res = await fetch(
       `http://localhost:3002/products?${key}=${filterText}`
@@ -40,21 +47,31 @@ function App() {
     filterByWord(filterText);
   }
 
+  // ---- filter product on checkbox ----
   function filterProducts(category) {
     if (Object.values(category).includes(true)) {
       console.log(category);
       const checkedValueIndex = Object.values(category).indexOf(true);
       filterByWord("category", Object.keys(category)[checkedValueIndex]);
+      console.log(checkedValueIndex)
     }
-  }
+    console.log("filterProducts")
+  } 
+  
 
-  // --- render -----
+  // --- render components -----
   return (
     <>
       <header>
+      <div className="cart-btn-container">
+          <button className="toggle-cart-btn">
+          <i class='fas fa-shopping-cart'></i>
+          </button>
+        </div>
         <div className="logo">
           <img src="images/logo.png" alt="logo" />
         </div>
+        
       </header>
       <main>
         <div className="input_search">
