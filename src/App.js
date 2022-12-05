@@ -36,8 +36,6 @@ function App() {
     filterByWord(filterText);
   }
 
-  
-  
   // --- render -----
   return (
     <>
@@ -49,24 +47,24 @@ function App() {
       <main>
         <div className="input_search">
           <input type="search" id="filter-input"></input>
-          <button className="search-btn" onClick={getFilterWord}>Search</button>
+          <button className="search-btn" onClick={getFilterWord}>
+            Search
+          </button>
         </div>
-        <div>
-          <h4>Category</h4>
+        <div className="flex-container">
           <div className="checkbox-wrapper">
             <FilterProduct />
           </div>
-        </div>
-        <div className="product-container">
-          {productsArray !== undefined &&
-            productsArray.map((product) => (
-              <ProductCard product={product} key={product.id} />
-            ))}
+
+          <div className="product-container">
+            {productsArray !== undefined &&
+              productsArray.map((product) => (
+                <ProductCard product={product} key={product.id} />
+              ))}
+          </div>
         </div>
       </main>
-      <footer>
-
-      </footer>
+      <footer></footer>
     </>
   );
 }

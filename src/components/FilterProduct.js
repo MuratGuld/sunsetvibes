@@ -11,7 +11,7 @@ const itemCategory = [
 
 const FilterProduct = () => {
   const [category, setCategory] = useState([]);
-//   const [fiteredCategory, setFilteredCategory] = useState([]);
+  //   const [fiteredCategory, setFilteredCategory] = useState([]);
 
   const handleChange = (e) => {
     if (e.target.checked) {
@@ -23,13 +23,13 @@ const FilterProduct = () => {
     }
   };
 
-//   useEffect(() => {
-//     setFilteredCategory(
-//       itemCategory.filter((itemCategory) =>
-//         category.some((item) => item === itemCategory.category)
-//       )
-//     );
-//   }, [category]);
+  //   useEffect(() => {
+  //     setFilteredCategory(
+  //       itemCategory.filter((itemCategory) =>
+  //         category.some((item) => item === itemCategory.category)
+  //       )
+  //     );
+  //   }, [category]);
 
   return (
     <div className="checkbox-product">
