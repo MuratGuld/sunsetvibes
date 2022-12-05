@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import { useState, useEffect } from "react";
 import "./App.css";
+import FilterProduct from "./components/FilterProduct";
 import ProductCard from "./components/ProductCard";
 
 function App() {
@@ -10,19 +11,20 @@ function App() {
     requestProduct();
   }, []);
 
+  //----- get the product ----
+
   async function requestProduct() {
     const res = await fetch(`https://sunsetvibes.onrender.com/data.json`);
     const products = await res.json();
-    // console.log(products);
     updateProductsArray(products);
   }
 
+  // ---- filter the product on input search ----
   async function filterByWord(filterText) {
     const res = await fetch(
       `https://sunsetvibes.onrender.com/products?title=${filterText}`
     );
     const products = await res.json();
-    console.log(products.filteredProduct);
     updateProductsArray(products.filteredProduct);
   }
 
@@ -34,6 +36,9 @@ function App() {
     filterByWord(filterText);
   }
 
+  
+  
+  // --- render -----
   return (
     <>
       <header>
@@ -42,26 +47,26 @@ function App() {
         </div>
       </header>
       <main>
-        <form>
+        <div className="input_search">
           <input type="search" id="filter-input"></input>
-          <button onFocusCapture={getFilterWord}>Search</button>
-        </form>
+          <button className="search-btn" onClick={getFilterWord}>Search</button>
+        </div>
         <div>
           <h4>Category</h4>
-          <div>
-            <a href="">Men's Clothing</a>
-            <a href="">Women's Clothing</a>
-            <a href="">Jewelery</a>
+          <div className="checkbox-wrapper">
+            <FilterProduct />
           </div>
         </div>
         <div className="product-container">
-          {productsArray != undefined &&
+          {productsArray !== undefined &&
             productsArray.map((product) => (
               <ProductCard product={product} key={product.id} />
             ))}
         </div>
       </main>
-      <footer></footer>
+      <footer>
+
+      </footer>
     </>
   );
 }
