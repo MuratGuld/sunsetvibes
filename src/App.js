@@ -6,6 +6,10 @@ import ProductCard from "./components/ProductCard";
 
 function App() {
   const [productsArray, updateProductsArray] = useState([]);
+  const [category, setCategory] = useState({
+    "men's clothing": false,
+    "women's clothing": false,
+  });
 
   useEffect(() => {
     requestProduct();
@@ -14,15 +18,15 @@ function App() {
   //----- get the product ----
 
   async function requestProduct() {
-    const res = await fetch(`https://sunsetvibes.onrender.com/data.json`);
+    const res = await fetch(`http://localhost:3002/data.json`);
     const products = await res.json();
     updateProductsArray(products);
   }
 
   // ---- filter the product on input search ----
-  async function filterByWord(filterText) {
+  async function filterByWord(key = "title", filterText) {
     const res = await fetch(
-      `https://sunsetvibes.onrender.com/products?title=${filterText}`
+      `http://localhost:3002/products?${key}=${filterText}`
     );
     const products = await res.json();
     updateProductsArray(products.filteredProduct);
@@ -36,8 +40,14 @@ function App() {
     filterByWord(filterText);
   }
 
-  
-  
+  function filterProducts(category) {
+    if (Object.values(category).includes(true)) {
+      console.log(category);
+      const checkedValueIndex = Object.values(category).indexOf(true);
+      filterByWord("category", Object.keys(category)[checkedValueIndex]);
+    }
+  }
+
   // --- render -----
   return (
     <>
@@ -49,12 +59,18 @@ function App() {
       <main>
         <div className="input_search">
           <input type="search" id="filter-input"></input>
-          <button className="search-btn" onClick={getFilterWord}>Search</button>
+          <button className="search-btn" onClick={getFilterWord}>
+            Search
+          </button>
         </div>
         <div>
           <h4>Category</h4>
           <div className="checkbox-wrapper">
-            <FilterProduct />
+            <FilterProduct
+              setCategory={setCategory}
+              category={category}
+              filterProducts={filterProducts}
+            />
           </div>
         </div>
         <div className="product-container">
@@ -64,9 +80,7 @@ function App() {
             ))}
         </div>
       </main>
-      <footer>
-
-      </footer>
+      <footer></footer>
     </>
   );
 }
