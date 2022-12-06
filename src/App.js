@@ -5,20 +5,19 @@ import FilterProduct from "./components/FilterProduct";
 import ProductCard from "./components/ProductCard";
 
 function App() {
-
   const [productsArray, updateProductsArray] = useState([]);
   const [category, setCategory] = useState({
-    "men's clothing" : false,
+    "men's clothing": false,
     "women's clothing": false,
   });
 
   useEffect(() => {
-    requestProduct()
+    requestProduct();
     console.log("called");
   }, []);
 
   useEffect(() => {
-    filterProducts(category)
+    filterProducts(category);
     console.log("changed");
   }, [category]);
 
@@ -53,25 +52,23 @@ function App() {
       console.log(category);
       const checkedValueIndex = Object.values(category).indexOf(true);
       filterByWord("category", Object.keys(category)[checkedValueIndex]);
-      console.log(checkedValueIndex)
+      console.log(checkedValueIndex);
     }
-    console.log("filterProducts")
-  } 
-  
+    console.log("filterProducts");
+  }
 
   // --- render components -----
   return (
     <>
       <header>
-      <div className="cart-btn-container">
+        <div className="cart-btn-container">
           <button className="toggle-cart-btn">
-          <i class='fas fa-shopping-cart'></i>
+            <i class="fas fa-shopping-cart"></i>
           </button>
         </div>
         <div className="logo">
           <img src="images/logo.png" alt="logo" />
         </div>
-        
       </header>
       <main>
         <div className="input_search">
@@ -97,7 +94,11 @@ function App() {
           </div>
         </div>
       </main>
-      <footer></footer>
+      <footer>
+        <div className="footer">
+          <p>Copyright © 2022 Sunset Vibes </p>
+        </div>
+      </footer>
     </>
   );
 }

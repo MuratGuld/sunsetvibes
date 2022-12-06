@@ -5,13 +5,19 @@ const ProductCard = ({ product }) => {
   return (
     <>
       <div className="product-card">
-        <div className="img-wrapper">
-          <img className="product-img" src={product.image} alt="" />
-        </div>
-        <h3>{product.title}</h3>
-        <p className="price">CHF {product.price}</p>
-        <div className="btn-wrapper">
-          <button className="add-cart-btn"> Add to Cart </button>
+        <div class="flip-card-inner">
+          <div className="img-wrapper flip-card-front">
+            <img className="product-img" src={product.image} alt="" />
+            <h3>{product.title}</h3>
+            <p className="price">CHF {product.price}</p>
+            <div className="btn-wrapper">
+              <button className="add-cart-btn"> Add to Cart </button>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <h3>{product.title}</h3>
+            <p>{product.description}</p>
+          </div>
         </div>
       </div>
     </>

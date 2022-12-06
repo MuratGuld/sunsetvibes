@@ -57,7 +57,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   /* background-color: grey; */
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /* cart button */
@@ -85,5 +85,11 @@ body {
   display: flex;
   justify-content: flex-end;
   margin: 20px;
+}
 
+.footer {
+  text-align: center;
+  background-color: white;
+  padding: 3px;
+  margin-top: 10px;
 }
