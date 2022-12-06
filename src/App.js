@@ -6,19 +6,22 @@ import ProductCard from "./components/ProductCard";
 
 function App() {
   const [productsArray, updateProductsArray] = useState([]);
+  const [allProductsArray, updateAllProductsArray] = useState([]);
   const [category, setCategory] = useState({
     "men's clothing": false,
     "women's clothing": false,
+    "jewelery": false,
+    "electonics": false,
   });
 
   useEffect(() => {
     requestProduct();
-    console.log("called");
+    // console.log("called");
   }, []);
 
   useEffect(() => {
     filterProducts(category);
-    console.log("changed");
+    // console.log("changed");
   }, [category]);
 
   //----- get the product ----
@@ -27,12 +30,13 @@ function App() {
     const res = await fetch(`http://localhost:3002/data.json`);
     const products = await res.json();
     updateProductsArray(products);
+    updateAllProductsArray(products);
   }
 
   // ---- filter product on input search ----
-  async function filterByWord(key = "title", filterText) {
+  async function filterByWord(filterText) {
     const res = await fetch(
-      `http://localhost:3002/products?${key}=${filterText}`
+      `http://localhost:3002/products?title=${filterText}`
     );
     const products = await res.json();
     updateProductsArray(products.filteredProduct);
@@ -49,12 +53,27 @@ function App() {
   // ---- filter product on checkbox ----
   function filterProducts(category) {
     if (Object.values(category).includes(true)) {
-      console.log(category);
-      const checkedValueIndex = Object.values(category).indexOf(true);
-      filterByWord("category", Object.keys(category)[checkedValueIndex]);
-      console.log(checkedValueIndex);
+      const checkedValueIndexes = [];
+      Object.values(category).forEach((result, index) => {
+        if (result) {
+          checkedValueIndexes.push(index);
+        }
+      });
+
+      const checkedCategories = checkedValueIndexes.map(
+        (index) => Object.keys(category)[index]
+      );
+      console.log(allProductsArray);
+      updateProductsArray(
+        allProductsArray.filter((product) => {
+          if (checkedCategories.includes(product.category)) {
+            return product;
+          }
+        })
+      );
+    } else {
+      updateProductsArray(allProductsArray);
     }
-    console.log("filterProducts");
   }
 
   // --- render components -----

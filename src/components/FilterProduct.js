@@ -16,10 +16,7 @@ const FilterProduct = ({ setCategory, category, filterProducts }) => {
       <h4>Category</h4>
       <label className="container">
         Men
-        <input type="checkbox" 
-        value="men's clothing" 
-        onChange={handleChange} 
-        />
+        <input type="checkbox" value="men's clothing" onChange={handleChange} />
         <span className="checkmark"></span>
       </label>
       <label className="container">
@@ -29,6 +26,16 @@ const FilterProduct = ({ setCategory, category, filterProducts }) => {
           value="women's clothing"
           onChange={handleChange}
         />
+        <span className="checkmark"></span>
+      </label>
+      <label className="container">
+        Jewelery
+        <input type="checkbox" value="jewelery" onChange={handleChange} />
+        <span className="checkmark"></span>
+      </label>
+      <label className="container">
+        Electronics
+        <input type="checkbox" value="electronics" onChange={handleChange} />
         <span className="checkmark"></span>
       </label>
     </div>
