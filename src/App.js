@@ -10,9 +10,11 @@ function App() {
   const [category, setCategory] = useState({
     "men's clothing": false,
     "women's clothing": false,
-    "jewelery": false,
-    "electonics": false,
+    jewelery: false,
+    electonics: false,
   });
+
+  const [cart, updateCart] = useState([]);
 
   useEffect(() => {
     requestProduct();
@@ -82,7 +84,7 @@ function App() {
       <header>
         <div className="cart-btn-container">
           <button className="toggle-cart-btn">
-            <i class="fas fa-shopping-cart"></i>
+            <i className="fas fa-shopping-cart"></i>
           </button>
         </div>
         <div className="logo">
@@ -90,6 +92,14 @@ function App() {
         </div>
       </header>
       <main>
+        {cart.map((id, index) => {
+          const product = allProductsArray.find(product => product.id === id);
+          return (
+          <div key={index}>
+          <p >{product.title}</p>
+          <img src={product.image} width="20" alt="" />
+          </div>);
+        })}
         <div className="input_search">
           <input type="search" id="filter-input"></input>
           <button className="search-btn" onClick={getFilterWord}>
@@ -108,7 +118,12 @@ function App() {
           <div className="product-container">
             {productsArray !== undefined &&
               productsArray.map((product) => (
-                <ProductCard product={product} key={product.id} />
+                <ProductCard
+                  product={product}
+                  key={product.id}
+                  cart={cart}
+                  updateCart={updateCart}
+                />
               ))}
           </div>
         </div>
