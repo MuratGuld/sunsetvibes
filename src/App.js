@@ -67,11 +67,9 @@ function App() {
       );
       console.log(allProductsArray);
       updateProductsArray(
-        allProductsArray.filter((product) => {
-          if (checkedCategories.includes(product.category)) {
-            return product;
-          }
-        })
+        allProductsArray.filter((product) =>
+          checkedCategories.includes(product.category)
+        )
       );
     } else {
       updateProductsArray(allProductsArray);
@@ -93,12 +91,13 @@ function App() {
       </header>
       <main>
         {cart.map((id, index) => {
-          const product = allProductsArray.find(product => product.id === id);
+          const product = allProductsArray.find((product) => product.id === id);
           return (
-          <div key={index}>
-          <p >{product.title}</p>
-          <img src={product.image} width="20" alt="" />
-          </div>);
+            <div key={index}>
+              <p>{product.title}</p>
+              <img src={product.image} width="20" alt="" />
+            </div>
+          );
         })}
         <div className="input_search">
           <input type="search" id="filter-input"></input>

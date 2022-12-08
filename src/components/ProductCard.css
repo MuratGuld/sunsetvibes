@@ -8,7 +8,9 @@ h3 {
 }
 
 .btn-wrapper {
-    float: inline-end;
+    /* float: inline-end; */
+  text-align: center;
+
 }
 
 .add-cart-btn {
