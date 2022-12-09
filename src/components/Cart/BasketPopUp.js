@@ -1,6 +1,13 @@
 import "./BasketPopUp.css";
+import { Link } from "react-router-dom";
+import { Context } from "../CardContext";
+import { useContext } from "react";
 
-const BasketPopUp = ({ cart, allProductsArray, updateShowCart }) => {
+
+const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
+  const [cart] = useContext(Context);
+
+
   let content = null;
   if (cart.length === 0) {
     content = (
@@ -32,7 +39,7 @@ const BasketPopUp = ({ cart, allProductsArray, updateShowCart }) => {
         <div className="col">
           <h3>Sunset Vibes Cart</h3>
           {content}
-          <div><button>Checkout</button></div>
+          <div><Link to={`/checkout`}>Checkout</Link></div>
         </div>
       </div>
     </div>

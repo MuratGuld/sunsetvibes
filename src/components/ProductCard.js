@@ -1,7 +1,12 @@
 import "./ProductCard.css";
+import { Context } from "./CardContext";
+import { useContext } from "react";
 
-const ProductCard = ({ product, cart, updateCart }) => {
+
+const ProductCard = ({ product }) => {
   //console.log(product)
+  const [cart, updateCart] = useContext(Context);
+
   const addProductToCart = () => {
     console.log(cart);
     updateCart([...cart, product.id]);

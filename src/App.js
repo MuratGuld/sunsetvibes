@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./App.css";
 import FilterProduct from "./components/FilterProduct";
 import ProductCard from "./components/ProductCard";
@@ -15,7 +15,6 @@ function App() {
     electonics: false,
   });
 
-  const [cart, updateCart] = useState([]);
 
   const [showCart, updateShowCart] = useState(false);
 
@@ -100,7 +99,7 @@ function App() {
       </header>
       <main>
         {showCart ? (
-          <BasketPopUp cart={cart} allProductsArray={allProductsArray} updateShowCart={updateShowCart}/>
+          <BasketPopUp allProductsArray={allProductsArray} updateShowCart={updateShowCart}/>
         ) : null}
         <div className="input_search">
           <input type="search" id="filter-input"></input>
@@ -123,8 +122,6 @@ function App() {
                 <ProductCard
                   product={product}
                   key={product.id}
-                  cart={cart}
-                  updateCart={updateCart}
                 />
               ))}
           </div>
