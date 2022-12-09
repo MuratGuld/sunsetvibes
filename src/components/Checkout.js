@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Context } from "./CardContext";
 import { useContext } from "react";
 

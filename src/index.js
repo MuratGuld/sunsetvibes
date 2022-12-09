@@ -8,7 +8,7 @@ import CardContext from './components/CardContext';
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
+  // Route,
 } from "react-router-dom";
 import Checkout from './components/Checkout';
 
