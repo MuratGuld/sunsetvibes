@@ -1,13 +1,12 @@
 import "./ProductCard.css";
 
-
 const ProductCard = ({ product, cart, updateCart }) => {
   //console.log(product)
   const addProductToCart = () => {
-    console.log(cart)
-    updateCart ([...cart, product.id])
-    alert ("Product added to the cart")
-  }
+    console.log(cart);
+    updateCart([...cart, product.id]);
+    alert("Product added to the cart");
+  };
   return (
     <>
       <div className="product-card">
@@ -16,15 +15,17 @@ const ProductCard = ({ product, cart, updateCart }) => {
             <img className="product-img" src={product.image} alt="" />
             <h3>{product.title}</h3>
             <p className="price">CHF {product.price}</p>
-            {/* <div className="btn-wrapper">
-              <button className="add-cart-btn"> Add to Cart </button>
-            </div> */}
           </div>
           <div className="flip-card-back">
-            <h3>{product.title}</h3>
-            <p>{product.description}</p>
+            <div>
+              <h3>{product.title}</h3>
+              <p>{product.description}</p>
+            </div>
             <div className="btn-wrapper">
-              <button className="add-cart-btn" onClick={addProductToCart}> Add to Cart </button>
+              <button className="add-cart-btn" onClick={addProductToCart}>
+                {" "}
+                Add to Cart{" "}
+              </button>
             </div>
           </div>
         </div>

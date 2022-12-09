@@ -63,6 +63,6 @@ h3 {
 .flip-card-back {
   position: absolute;
   transform: rotateY(180deg);
-  top: 30%;
+  top: 10%;
   margin: 0;
 }

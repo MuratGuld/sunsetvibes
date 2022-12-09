@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import FilterProduct from "./components/FilterProduct";
 import ProductCard from "./components/ProductCard";
+import BasketPopUp from "./components/Cart/BasketPopUp";
 
 function App() {
   const [productsArray, updateProductsArray] = useState([]);
@@ -15,6 +16,8 @@ function App() {
   });
 
   const [cart, updateCart] = useState([]);
+
+  const [showCart, updateShowCart] = useState(false);
 
   useEffect(() => {
     requestProduct();
@@ -81,7 +84,13 @@ function App() {
     <>
       <header>
         <div className="cart-btn-container">
-          <button className="toggle-cart-btn">
+          <button
+            className="toggle-cart-btn"
+            onClick={() => {
+              console.log(showCart);
+              updateShowCart(true);
+            }}
+          >
             <i className="fas fa-shopping-cart"></i>
           </button>
         </div>
@@ -90,15 +99,9 @@ function App() {
         </div>
       </header>
       <main>
-        {cart.map((id, index) => {
-          const product = allProductsArray.find((product) => product.id === id);
-          return (
-            <div key={index}>
-              <p>{product.title}</p>
-              <img src={product.image} width="20" alt="" />
-            </div>
-          );
-        })}
+        {showCart ? (
+          <BasketPopUp cart={cart} allProductsArray={allProductsArray} updateShowCart={updateShowCart}/>
+        ) : null}
         <div className="input_search">
           <input type="search" id="filter-input"></input>
           <button className="search-btn" onClick={getFilterWord}>
