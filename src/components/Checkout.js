@@ -11,7 +11,7 @@ const Checkout = () => {
         <ul>
             {cart.map(id => (<li>{id}</li>))}
         </ul>
-        <Link to={`/`}>Back</Link>
+        <Link to={`/`}>Return to Main Page</Link>
         </>
     )
 }

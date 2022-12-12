@@ -27,8 +27,12 @@ const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
         <p>{product.title}</p>
         <img src={product.image} width="20" alt="" />
       </div>
-    ));
-  }
+    ))
+      {
+      <div>
+        <Link to={`/checkout`}>Checkout</Link>
+      </div>}
+  };
 
   return (
     <div id="myModal" className="modal">
@@ -39,7 +43,7 @@ const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
         <div className="col">
           <h3>Sunset Vibes Cart</h3>
           {content}
-          <div><Link to={`/checkout`}>Checkout</Link></div>
+          
         </div>
       </div>
     </div>
