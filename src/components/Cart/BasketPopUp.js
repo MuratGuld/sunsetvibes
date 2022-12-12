@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import { Context } from "../CardContext";
 import { useContext } from "react";
 
-
 const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
   const [cart] = useContext(Context);
-
 
   let content = null;
   if (cart.length === 0) {
@@ -27,12 +25,13 @@ const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
         <p>{product.title}</p>
         <img src={product.image} width="20" alt="" />
       </div>
-    ))
-      {
+    ));
+    content.push(
       <div>
         <Link to={`/checkout`}>Checkout</Link>
-      </div>}
-  };
+      </div>
+    );
+  }
 
   return (
     <div id="myModal" className="modal">
@@ -43,7 +42,6 @@ const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
         <div className="col">
           <h3>Sunset Vibes Cart</h3>
           {content}
-          
         </div>
       </div>
     </div>
