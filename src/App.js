@@ -31,7 +31,7 @@ function App() {
   //----- get the product ----
 
   async function requestProduct() {
-    const res = await fetch(`http://localhost:3002/data.json`);
+    const res = await fetch(`https://sunsetvibes.onrender.com/data.json`);
     const products = await res.json();
     updateProductsArray(products);
     updateAllProductsArray(products);
@@ -40,7 +40,7 @@ function App() {
   // ---- filter product on input search ----
   async function filterByWord(filterText) {
     const res = await fetch(
-      `http://localhost:3002/products?title=${filterText}`
+      `https://sunsetvibes.onrender.com/products?title=${filterText}`
     );
     const products = await res.json();
     updateProductsArray(products.filteredProduct);
