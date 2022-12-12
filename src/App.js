@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import FilterProduct from "./components/FilterProduct";
 import ProductCard from "./components/ProductCard";
@@ -23,10 +23,11 @@ function App() {
     // console.log("called");
   }, []);
 
+  
   useEffect(() => {
     filterProducts(category);
     // console.log("changed");
-  }, [category]);
+  });
 
   //----- get the product ----
 
