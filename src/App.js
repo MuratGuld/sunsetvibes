@@ -15,7 +15,6 @@ function App() {
     electonics: false,
   });
 
-
   const [showCart, updateShowCart] = useState(false);
 
   useEffect(() => {
@@ -23,7 +22,6 @@ function App() {
     // console.log("called");
   }, []);
 
-  
   useEffect(() => {
     filterProducts(category);
     // console.log("changed");
@@ -32,7 +30,14 @@ function App() {
   //----- get the product ----
 
   async function requestProduct() {
-    const res = await fetch(`https://sunsetvibes.onrender.com/data.json`);
+    let domain;
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+      domain = "http://localhost:3002";
+    } else {
+      domain = "https://sunsetvibes.onrender.com";
+    }
+
+    const res = await fetch(`${domain}/data.json`);
     const products = await res.json();
     updateProductsArray(products);
     updateAllProductsArray(products);
@@ -100,7 +105,10 @@ function App() {
       </header>
       <main>
         {showCart ? (
-          <BasketPopUp allProductsArray={allProductsArray} updateShowCart={updateShowCart}/>
+          <BasketPopUp
+            allProductsArray={allProductsArray}
+            updateShowCart={updateShowCart}
+          />
         ) : null}
         <div className="input_search">
           <input type="search" id="filter-input"></input>
@@ -120,10 +128,7 @@ function App() {
           <div className="product-container">
             {productsArray !== undefined &&
               productsArray.map((product) => (
-                <ProductCard
-                  product={product}
-                  key={product.id}
-                />
+                <ProductCard product={product} key={product.id} />
               ))}
           </div>
         </div>
