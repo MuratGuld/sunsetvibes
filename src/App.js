@@ -25,12 +25,14 @@ function App() {
   useEffect(() => {
     console.log("useefect at linke 20 wascalled");
     requestProduct();
-  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   useEffect(() => {
     console.log("useEfffect at line 25 was called");
     filterProducts(category);
-  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[category]);
 
   //----- get the product ----
 
