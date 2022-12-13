@@ -4,7 +4,6 @@ import { useContext } from "react";
 import "./About.css";
 
 const About = () => {
-  const [cart] = useContext(Context);
 
   return (
     <div className="bg-body">
