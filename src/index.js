@@ -10,7 +10,7 @@ import {
   RouterProvider,
   // Route,
 } from "react-router-dom";
-import Checkout from './components/Checkout';
+import About from './components/About';
 
 const router = createBrowserRouter([
   {
@@ -18,8 +18,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/checkout",
-    element: <Checkout />,
+    path: "/about",
+    element: <About />,
   },
 ]);
 
