@@ -1,10 +1,11 @@
 import "./BasketPopUp.css";
 import { Link } from "react-router-dom";
 import { Context } from "../CardContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
   const [cart] = useContext(Context);
+  const [orderState, setOrderState] = useState(false);
 
   let content = null;
   if (cart.length === 0) {
@@ -27,9 +28,12 @@ const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
       </div>
     ));
     content.push(
-      <div>
-        <Link to={`/checkout`}>Checkout</Link>
-      </div>
+      <>
+        <div>
+          <button onClick={() => setOrderState(true)}>Order</button>
+        </div>
+        {orderState ? <p>Your order is has been placed!</p> : null}
+      </>
     );
   }
 
