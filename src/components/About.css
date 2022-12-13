@@ -30,7 +30,7 @@
 }
 
 .page-columns > img {
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .return-btn {
@@ -40,11 +40,11 @@
   padding: 10px;
   border: solid 1px #b4b1b1;
   background-color: transparent;
-  margin: 10px;
+  margin-top: 20px;
 }
 
 .return-btn:hover {
-  background-color: #f48b2e;
+  background-color: #f7f6f5;
 }
 
 .return-link {
@@ -52,15 +52,9 @@
   color: black;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1400px) {
   .container-page {
-    flex-direction: column;
-  }
-  .container-page:nth-child(1) {
-    order: 2;
-  }
-  .container-page:nth-child(2) {
-    order: 1;
+    flex-direction: column-reverse;
   }
 }
 

@@ -59,7 +59,7 @@ const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
           </button>
         </div>
         {orderState ? (
-          <p className="info-text">Your order is has been placed!</p>
+          <p className="info-text">Your order has been placed!</p>
         ) : null}
       </div>
     );
