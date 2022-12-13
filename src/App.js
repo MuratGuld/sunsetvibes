@@ -5,7 +5,7 @@ import FilterProduct from "./components/FilterProduct";
 import ProductCard from "./components/ProductCard";
 import BasketPopUp from "./components/Cart/BasketPopUp";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 // 1 function that fetches the data, and updates the state. Called once at page load
@@ -26,16 +26,14 @@ function App() {
   const [showCart, updateShowCart] = useState(false);
 
   useEffect(() => {
-    console.log("useefect at linke 20 wascalled");
     requestProduct();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
-    console.log("useEfffect at line 25 was called");
     filterProducts(category);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[category]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category]);
 
   //----- get the product ----
 
@@ -55,7 +53,6 @@ function App() {
     const res = await fetch(`${domain}/products?title=${filterText}`);
     const products = await res.json();
     updateProductsArray(products.filteredProduct);
-    console.log("after fetch for search: ", products.filteredProduct);
   }
 
   function setDomain() {
@@ -89,17 +86,12 @@ function App() {
       const checkedCategories = checkedValueIndexes.map(
         (index) => Object.keys(category)[index]
       );
-      console.log(
-        "2 update products array called from filter products",
-        allProductsArray
-      );
       updateProductsArray(
         allProductsArray.filter((product) =>
           checkedCategories.includes(product.category)
         )
       );
     } else {
-      console.log("update products array called from filter products");
       updateProductsArray(allProductsArray);
     }
   }
@@ -112,7 +104,6 @@ function App() {
           <button
             className="toggle-cart-btn"
             onClick={() => {
-              console.log(showCart);
               updateShowCart(true);
             }}
           >
@@ -144,10 +135,12 @@ function App() {
               filterProducts={filterProducts}
             />
             <div className="about-page">
-              <Link to={`/about`} className="about-link">About</Link>
+              <Link to={`/about`} className="about-link">
+                About
+              </Link>
             </div>
           </div>
-          
+
           <div className="product-container">
             {productsArray !== undefined &&
               productsArray.map((product) => (
