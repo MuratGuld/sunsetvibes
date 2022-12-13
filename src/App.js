@@ -4,7 +4,6 @@ import "./App.css";
 import FilterProduct from "./components/FilterProduct";
 import ProductCard from "./components/ProductCard";
 import BasketPopUp from "./components/Cart/BasketPopUp";
-
 // 1 function that fetches the data, and updates the state. Called once at page load
 // and once when you search, with search query.
 // 1 function that filters that list just before displaying the articls. It doesn
