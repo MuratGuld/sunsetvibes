@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { Context } from "./CardContext";
-import { useContext } from "react";
+// import { Context } from "./CardContext";
+// import { useContext } from "react";
 import "./About.css";
 
 const About = () => {
