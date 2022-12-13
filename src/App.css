@@ -12,6 +12,10 @@ body {
   margin: 10px;
 }
 
+main {
+  min-height: 100vh;
+}
+
 /* ---input search--- */
 
 .input_search{

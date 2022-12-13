@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./About.css";
 
 const About = () => {
-
   return (
     <div className="bg-body">
       <header>
@@ -26,15 +25,33 @@ const About = () => {
               sunt in culpa qui officia deserunt mollit anim id est laborum."
             </p>
             <p>
-            Sollicitudin aliquam ultrices sagittis orci. Volutpat odio facilisis mauris sit amet massa. Tristique senectus et netus et malesuada fames ac turpis. Tristique senectus et netus et malesuada. Platea dictumst quisque sagittis purus sit amet. Morbi tristique senectus et netus et malesuada fames ac. Dictum varius duis at consectetur lorem donec massa sapien faucibus. Sagittis orci a scelerisque purus semper eget. Volutpat blandit aliquam etiam erat velit scelerisque in dictum non. Nibh mauris cursus mattis molestie a iaculis at erat. Aliquam purus sit amet luctus. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Vitae sapien pellentesque habitant morbi. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque. Ac tortor vitae purus faucibus. Vel pretium lectus quam id leo in vitae turpis massa. Pretium vulputate sapien nec sagittis aliquam. Eget nulla facilisi etiam dignissim diam quis enim lobortis. Neque sodales ut etiam sit amet nisl purus in mollis. Pellentesque diam volutpat commodo sed egestas.
+              Sollicitudin aliquam ultrices sagittis orci. Volutpat odio
+              facilisis mauris sit amet massa. Tristique senectus et netus et
+              malesuada fames ac turpis. Tristique senectus et netus et
+              malesuada. Platea dictumst quisque sagittis purus sit amet. Morbi
+              tristique senectus et netus et malesuada fames ac. Dictum varius
+              duis at consectetur lorem donec massa sapien faucibus. Sagittis
+              orci a scelerisque purus semper eget. Volutpat blandit aliquam
+              etiam erat velit scelerisque in dictum non. Nibh mauris cursus
+              mattis molestie a iaculis at erat. Aliquam purus sit amet luctus.
+              Maecenas volutpat blandit aliquam etiam erat velit scelerisque in
+              dictum. Vitae sapien pellentesque habitant morbi. Diam volutpat
+              commodo sed egestas egestas fringilla phasellus faucibus
+              scelerisque. Ac tortor vitae purus faucibus. Vel pretium lectus
+              quam id leo in vitae turpis massa. Pretium vulputate sapien nec
+              sagittis aliquam. Eget nulla facilisi etiam dignissim diam quis
+              enim lobortis. Neque sodales ut etiam sit amet nisl purus in
+              mollis. Pellentesque diam volutpat commodo sed egestas.
             </p>
+            <div className="return-btn">
+              <Link to={`/`} className="return-link">
+                Return to Shop
+              </Link>
+            </div>
           </div>
           <div className="page-columns">
             <img src="images/creative-group.png" alt="img-about" />
           </div>
-        </div>
-        <div className="return-btn">
-          <Link to={`/`} className="return-link">Return to Shop</Link>
         </div>
       </main>
       <footer>
