@@ -12,6 +12,7 @@ body {
   margin: 10px;
 }
 
+/* ---input search--- */
 
 .input_search{
   text-align: center;
@@ -36,6 +37,7 @@ body {
 
 .search-btn:hover{
   background-color: #f27f2b;
+  cursor: pointer;
 }
 
 .flex-container {
@@ -92,4 +94,24 @@ body {
   background-color: white;
   padding: 3px;
   margin-top: 10px;
+  width: 100%;
+  bottom: 0;
+}
+
+/* ---about link--- */
+
+.about-page {
+  margin: 20px;
+  border: solid 1px #c9c6c6;
+  padding: 10px 80px 10px 20px;
+  border-radius: 10px;
+}
+
+.about-page:hover {
+  background-color: #f27f2b;
+}
+
+.about-link {
+  text-decoration: none;
+  color: black;
 }

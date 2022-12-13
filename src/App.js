@@ -4,6 +4,7 @@ import "./App.css";
 import FilterProduct from "./components/FilterProduct";
 import ProductCard from "./components/ProductCard";
 import BasketPopUp from "./components/Cart/BasketPopUp";
+import { Link } from "react-router-dom";
 
 // 1 function that fetches the data, and updates the state. Called once at page load
 // and once when you search, with search query.
@@ -130,8 +131,11 @@ function App() {
               category={category}
               filterProducts={filterProducts}
             />
+            <div className="about-page">
+              <Link to={`/about`} className="about-link">About</Link>
+            </div>
           </div>
-
+          
           <div className="product-container">
             {productsArray !== undefined &&
               productsArray.map((product) => (
