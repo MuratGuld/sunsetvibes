@@ -5,9 +5,10 @@ import "./Checkout.css";
 
 const Checkout = () => {
   const [cart] = useContext(Context);
+  
 
   return (
-    <>
+    <div className="bg-body">
       <header>
         <div className="logo">
           <img src="images/logo.png" alt="logo" />
@@ -19,7 +20,7 @@ const Checkout = () => {
         ))}
       </ul>
       <Link to={`/`}>Return to Main Page</Link>
-    </>
+    </div>
   );
 };
 export default Checkout;
