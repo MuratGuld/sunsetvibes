@@ -5,6 +5,11 @@ import FilterProduct from "./components/FilterProduct";
 import ProductCard from "./components/ProductCard";
 import BasketPopUp from "./components/Cart/BasketPopUp";
 
+// 1 function that fetches the data, and updates the state. Called once at page load
+// and once when you search, with search query.
+// 1 function that filters that list just before displaying the articls. It doesn
+// need to change the state.
+
 function App() {
   const [productsArray, updateProductsArray] = useState([]);
   const [allProductsArray, updateAllProductsArray] = useState([]);
@@ -18,13 +23,13 @@ function App() {
   const [showCart, updateShowCart] = useState(false);
 
   useEffect(() => {
+    console.log("useefect at linke 20 wascalled");
     requestProduct();
-    // console.log("called");
   }, []);
 
   useEffect(() => {
+    console.log("useEfffect at line 25 was called");
     filterProducts(category);
-    // console.log("changed");
   });
 
   //----- get the product ----
@@ -50,6 +55,7 @@ function App() {
     );
     const products = await res.json();
     updateProductsArray(products.filteredProduct);
+    console.log("after fetch for search: ", products.filteredProduct);
   }
 
   function getFilterWord(e) {
@@ -73,13 +79,14 @@ function App() {
       const checkedCategories = checkedValueIndexes.map(
         (index) => Object.keys(category)[index]
       );
-      console.log(allProductsArray);
+      console.log("2 update products array called from filter products", allProductsArray);
       updateProductsArray(
         allProductsArray.filter((product) =>
           checkedCategories.includes(product.category)
         )
       );
     } else {
+      console.log("update products array called from filter products")
       updateProductsArray(allProductsArray);
     }
   }
