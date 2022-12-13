@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     console.log("useefect at linke 20 wascalled");
     requestProduct();
-  }, []);
+  });
 
   useEffect(() => {
     console.log("useEfffect at line 25 was called");
