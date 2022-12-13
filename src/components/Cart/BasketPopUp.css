@@ -126,3 +126,28 @@
 .order-display p {
   margin-top: 0;
 }
+
+.text-empty {
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.content-empty {
+  display: flex;
+  margin: 10px 0 10px 20px;
+  justify-content: space-around;
+  width: 800px;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 900px) {
+  .content-empty {
+    flex-direction: column;
+  }
+
+  .text-empty {
+    text-align: left;
+  }
+}

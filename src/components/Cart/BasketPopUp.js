@@ -18,12 +18,15 @@ const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
   let content = null;
   if (cart.length === 0) {
     content = (
-      <>
-        <img src="images/empty-cart-icon.png" width="300px" alt="emptycart" />
+      <div className="content-empty">
         <div>
+          <img src="images/empty-cart-icon.png" width="300px" alt="emptycart" />
+        </div>
+        <div className="text-empty">
+          <p>Ooops!</p>
           <p>Your cart is empty</p>
         </div>
-      </>
+      </div>
     );
   } else {
     let products = cart.map((id, index) => {
@@ -42,9 +45,13 @@ const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
       <div className="order-container">
         <div className="order-display">
           Order Total:
-          <p>CHF {products
-          .map((product=> product.price))
-          .reduce((num,sum) => num+sum).toFixed(2)}</p>
+          <p>
+            CHF{" "}
+            {products
+              .map((product) => product.price)
+              .reduce((num, sum) => num + sum)
+              .toFixed(2)}
+          </p>
         </div>
         <div>
           <button onClick={handleOrder} className="btn">
