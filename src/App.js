@@ -35,12 +35,7 @@ function App() {
   //----- get the product ----
 
   async function requestProduct() {
-    let domain;
-    if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
-      domain = "http://localhost:3002";
-    } else {
-      domain = "https://sunsetvibes.onrender.com";
-    }
+    let domain = setDomain();
 
     const res = await fetch(`${domain}/data.json`);
     const products = await res.json();
@@ -50,19 +45,29 @@ function App() {
 
   // ---- filter product on input search ----
   async function filterByWord(filterText) {
-    const res = await fetch(
-      `https://sunsetvibes.onrender.com/products?title=${filterText}`
-    );
+    let domain = setDomain();
+
+    const res = await fetch(`${domain}/products?title=${filterText}`);
     const products = await res.json();
     updateProductsArray(products.filteredProduct);
     console.log("after fetch for search: ", products.filteredProduct);
+  }
+
+  function setDomain() {
+    let domain;
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+      domain = "http://localhost:3002";
+    } else {
+      domain = "https://sunsetvibes.onrender.com";
+    }
+
+    return domain;
   }
 
   function getFilterWord(e) {
     e.preventDefault();
     const filterInput = document.querySelector("#filter-input");
     const filterText = filterInput.value;
-
     filterByWord(filterText);
   }
 
@@ -79,14 +84,17 @@ function App() {
       const checkedCategories = checkedValueIndexes.map(
         (index) => Object.keys(category)[index]
       );
-      console.log("2 update products array called from filter products", allProductsArray);
+      console.log(
+        "2 update products array called from filter products",
+        allProductsArray
+      );
       updateProductsArray(
         allProductsArray.filter((product) =>
           checkedCategories.includes(product.category)
         )
       );
     } else {
-      console.log("update products array called from filter products")
+      console.log("update products array called from filter products");
       updateProductsArray(allProductsArray);
     }
   }

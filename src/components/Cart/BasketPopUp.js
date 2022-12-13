@@ -4,8 +4,16 @@ import { Context } from "../CardContext";
 import { useContext, useState } from "react";
 
 const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
-  const [cart] = useContext(Context);
+  const [cart, updateCart] = useContext(Context);
   const [orderState, setOrderState] = useState(false);
+
+  function handleOrder() {
+    setOrderState(true);
+    setTimeout(() => {
+      updateShowCart(false);
+      updateCart([]);
+    }, 2000);
+  }
 
   let content = null;
   if (cart.length === 0) {
@@ -22,18 +30,31 @@ const BasketPopUp = ({ allProductsArray, updateShowCart }) => {
       return allProductsArray.find((product) => product.id === id);
     });
     content = products.map((product, index) => (
-      <div key={index}>
-        <p>{product.title}</p>
-        <img src={product.image} width="20" alt="" />
+      <div key={index} className="content-div">
+        <div>
+          <img src={product.image} width="50" alt="" />
+          <p>{product.title}</p>
+        </div>
+        <p>CHF {product.price}</p>
       </div>
     ));
     content.push(
-      <>
-        <div>
-          <button onClick={() => setOrderState(true)}>Order</button>
+      <div className="order-container">
+        <div className="order-display">
+          Order Total:
+          <p>CHF {products
+          .map((product=> product.price))
+          .reduce((num,sum) => num+sum).toFixed(2)}</p>
         </div>
-        {orderState ? <p>Your order is has been placed!</p> : null}
-      </>
+        <div>
+          <button onClick={handleOrder} className="btn">
+            Order
+          </button>
+        </div>
+        {orderState ? (
+          <p className="info-text">Your order is has been placed!</p>
+        ) : null}
+      </div>
     );
   }
 
