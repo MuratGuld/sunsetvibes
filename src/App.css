@@ -3,8 +3,13 @@
 }
 
 body {
-  background: rgb(244,139,46);
-  background: linear-gradient(0deg, rgba(244,139,46,1) 0%, rgba(255,255,255,1) 100%);
+  background: rgb(244, 139, 46);
+  background: linear-gradient(
+    0deg,
+    rgba(244, 139, 46, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  overflow-x: hidden;
 }
 
 .logo {
@@ -18,7 +23,7 @@ main {
 
 /* ---input search--- */
 
-.input_search{
+.input_search {
   text-align: center;
   margin: 20px;
 }
@@ -40,7 +45,7 @@ main {
   margin: 10px;
 }
 
-.search-btn:hover{
+.search-btn:hover {
   background-color: #f27f2b;
   cursor: pointer;
 }
@@ -64,7 +69,7 @@ main {
   flex-direction: row;
   flex-wrap: wrap;
   /* background-color: grey; */
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 /* cart button */
@@ -81,7 +86,7 @@ main {
   cursor: pointer;
   margin: 20px;
   border-radius: 50px;
-  background-color: #EFEFEF;
+  background-color: #efefef;
 }
 
 .toggle-cart-btn:hover {
